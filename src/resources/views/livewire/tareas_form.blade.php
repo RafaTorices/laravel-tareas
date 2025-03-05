@@ -16,6 +16,9 @@
                     <span>{{ $categoria->nombre_categoria }}</span>
                 </div>
             @endforeach
+            @error('categoriasSeleccionadas')
+                <span class="text-xs italic text-red-500">{{ $message }}</span>
+            @enderror
         </div>
         <div class="mb-2">
             <button wire:click="guardarTarea"
@@ -26,29 +29,11 @@
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
                 <p>{{ session('messageExito') }}</p>
             </div>
+            <!-- Muestra un mensaje eliminar la tarea -->
         @elseif(session()->has('messageDelete'))
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
                 <p>{{ session('messageDelete') }}</p>
             </div>
         @endif
-        <div class="mt-8">
-            <h2 class="text-3xl font-bold mb-4">LISTADO DE TAREAS</h2>
-            <ul>
-                @foreach($tareas as $tarea)
-                    <li class="border-b py-2 flex justify-between">
-                        <div>
-                            <strong>{{ $tarea->nombre_tarea }}</strong>
-                            <br>
-                            @foreach ($tarea->categorias as $tarea_categoria)
-                                <span
-                                    class="text-sm rounded-lg px-2 bg-white text-green-500 p-1">{{ $tarea_categoria->nombre_categoria }}</span>
-                            @endforeach
-                        </div>
-                        <button wire:click="borrarTarea({{ $tarea->id }})"
-                            class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Eliminar</button>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
     </div>
 </div>

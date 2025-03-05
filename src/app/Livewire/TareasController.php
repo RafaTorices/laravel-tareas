@@ -16,20 +16,20 @@ class TareasController extends Component
     {
         $this->tareas = Tarea::all();
         $this->categorias = Categoria::all();
-        return view('livewire.tareas-controller');
+        return view('livewire.tareas');
     }
 
     public function guardarTarea()
     {
         $rules = [
             'nombre_tarea' => 'required',
-            // 'categoriasSeleccionadas' => 'required|array|min:1'
+            'categoriasSeleccionadas' => 'required|array|min:1'
         ];
         $messages = [
             'nombre_tarea.required' => 'El campo nombre de la tarea está vacío',
-            // 'categoriasSeleccionadas.required' => 'Debe seleccionar al menos una categoría',
-            // 'categoriasSeleccionadas.array' => 'Debe seleccionar al menos una categoría',
-            // 'categoriasSeleccionadas.min' => 'Debe seleccionar al menos una categoría'
+            'categoriasSeleccionadas.required' => 'Debe seleccionar al menos una categoría',
+            'categoriasSeleccionadas.array' => 'Debe seleccionar al menos una categoría',
+            'categoriasSeleccionadas.min' => 'Debe seleccionar al menos una categoría'
         ];
         $this->validate($rules, $messages);
 
