@@ -2,6 +2,7 @@
 
 ## Descripción
 Este proyecto es una sencilla aplicación de tareas, donde se pueden crear y eliminar tareas. Las tareas llevan asociadas categorías.
+He utilizado un nuevo proyecto Laravel con Livewire para la parte dinámica y TailwindCSS para el diseño.
 
 # Requerimientos
 ***Importante***:
@@ -21,7 +22,8 @@ La aplicación necesita de una base de datos MySQL para funcionar. Se debe confi
 - NPM 10.9.2
 
 ## Contenido del proyecto
-[src](src) - Código fuente de la aplicación Laravel
+
+El código del proyecto Laravel se encuentra en la carpeta **src**
 
 
 ## Lógica de la base de datos
