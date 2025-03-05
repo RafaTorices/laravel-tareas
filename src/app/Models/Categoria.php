@@ -11,6 +11,6 @@ class Categoria extends Model
     protected $primaryKey = 'id';
     public function tarea()
     {
-        return $this->belongsToMany(Tarea::class);
+        return $this->belongsToMany(Tarea::class, 'tarea__categorias', 'categoria_id', 'tarea_id');
     }
 }

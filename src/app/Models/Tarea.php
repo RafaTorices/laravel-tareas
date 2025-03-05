@@ -13,7 +13,7 @@ class Tarea extends Model
     protected $primaryKey = 'id';
     public function categorias()
     {
-        return $this->belongsToMany(Categoria::class);
+        return $this->belongsToMany(Categoria::class, 'tarea__categorias', 'tarea_id', 'categoria_id');
     }
 
 }

@@ -11,7 +11,7 @@
         <div class="mb-2">
             @foreach($categorias as $categoria)
                 <div>
-                    <input type="checkbox" wire:model="seleccionar_categorias" value="{{ $categoria->id }}"
+                    <input type="checkbox" wire:model="categoriasSeleccionadas" value="{{ $categoria->id }}"
                         class="form-checkbox">
                     <span>{{ $categoria->nombre_categoria }}</span>
                 </div>

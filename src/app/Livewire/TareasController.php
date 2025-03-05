@@ -11,6 +11,7 @@ class TareasController extends Component
     public $tareas = [];
     public $nombre_tarea;
     public $categorias = [];
+    public $categoriasSeleccionadas = [];
     public function render()
     {
         $this->tareas = Tarea::all();
@@ -36,13 +37,13 @@ class TareasController extends Component
             'nombre_tarea' => $this->nombre_tarea
         ]);
 
+        $this->tarea->categorias()->attach($this->categoriasSeleccionadas);
+        // $this->reset(['nombre_tarea', 'categoriasSeleccionadas']);
+        $this->tarea = Tarea::with('categorias')->get();
+
         // Muestra un mensaje de éxito
         session()->flash('messageExito', 'Tarea creada con éxito');
 
-        // $this->tarea->categorias()->attach($this->categoriasSeleccionadas);
-
-        // $this->reset(['nombre_tarea', 'categoriasSeleccionadas']);
-        // $this->tareas = Tarea::with('categorias')->get();
     }
 
     // Metodo para eliminar una tarea
