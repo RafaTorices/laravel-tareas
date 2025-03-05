@@ -12,7 +12,7 @@ La aplicación necesita de una base de datos MySQL para funcionar. Se debe confi
 
 - Laravel 12
 - PHP 8.2x
-- Livewire v3
+- Livewire 3.6
 - TailwindCSS v4
 - Laravel installer 5.11.2
 - MySQL 8.0
