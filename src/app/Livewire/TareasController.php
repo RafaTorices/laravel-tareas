@@ -38,8 +38,8 @@ class TareasController extends Component
         ]);
 
         $this->tarea->categorias()->attach($this->categoriasSeleccionadas);
-        // $this->reset(['nombre_tarea', 'categoriasSeleccionadas']);
-        $this->tarea = Tarea::with('categorias')->get();
+        $this->reset(['nombre_tarea', 'categoriasSeleccionadas']);
+        $this->tareas = Tarea::with('categorias')->get();
 
         // Muestra un mensaje de éxito
         session()->flash('messageExito', 'Tarea creada con éxito');
