@@ -79,3 +79,56 @@ php artisan serve
 ```bash
 http://localhost:8000
 ```
+
+## Extras
+
+### Desplegar en local mediante Docker-compose
+
+Se despliegan el servicio de PHP-Apache para la aplicación y el servicio de MySQL para la base de datos.
+
+1. Clonar el repositorio
+```bash
+git clone repositorio
+```
+2. Ejecutar docker-compose
+```bash
+docker-compose up -d
+```
+3. Generar el archivo .env
+```bash
+docker-compose exec app cp .env.example .env
+```
+4. Generar clave de aplicación
+```bash
+docker-compose exec app php artisan key:generate
+```
+5. Modificar el archivo .env con los datos del servicio desplegado de MySQL
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=mysql-db
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=laravel
+DB_PASSWORD=laravel
+```
+6. Ejecutar migraciones
+```bash
+docker-compose exec app php artisan migrate
+```
+7. Ejecutar seeders
+```bash
+docker-compose exec app php artisan db:seed
+```
+8. Acceder a la aplicación en el navegador
+```bash
+http://localhost:8080
+```
+
+### Para parar los servicios de Docker-compose
+```bash
+docker-compose down
+```
+
+
+
